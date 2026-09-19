@@ -52,7 +52,3 @@ Ricerca dei giocatori più simili a Lautaro Martínez (Inter):
 Il notebook e i commenti al codice sono scritti in francese, la mia lingua madre. Sono disponibile a tradurli in italiano o in inglese su richiesta.
 
 *Una versione in francese di questo README è disponibile nel file `README_fr.md`.*
-
-## Contatti
-
-[Nome / LinkedIn / email da completare]
