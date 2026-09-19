@@ -1,58 +1,49 @@
-# Scouting Serie A. Sistema di similarità tra giocatori
+# Scouting Serie A. Système de similarité de joueurs
 
-Progetto personale di analisi dati applicata allo scouting calcistico: raccolta di statistiche pubbliche (Sofascore, Serie A, stagione 2025/2026), costruzione di un sistema che calcola, per qualsiasi giocatore, i profili statistici più simili.
+Projet personnel de recrutement sportif basé sur la donnée : collecte de statistiques publiques (Sofascore, Serie A, saison 2025/2026), construction d'un système qui calcule, pour n'importe quel joueur, ses profils statistiques les plus proches.
 
-Metodo interamente riproducibile su qualsiasi altro campionato, o sui dati interni di un club.
+Méthode entièrement reproductible sur n'importe quel autre championnat, ou sur les données internes d'un club.
 
-## Contesto
+## Contexte
 
-Sono uno studente francese in Business Intelligence, specializzato nell'analisi dati applicata allo sport. Ho sviluppato questo progetto in completa autonomia per dimostrare una competenza concreta, utile allo scouting. Ho scelto la Serie A come dimostrazione, non avendo accesso a dati di campionati più piccoli, ma il metodo si applica esattamente allo stesso modo a qualsiasi altro dataset di giocatori.
+En formation d'analyste Business Intelligence orientée sport, je construis ce projet en totale autonomie pour démontrer une compétence concrète, utile au recrutement sportif. J'ai choisi la Serie A comme démonstrateur, faute d'accès aux données de championnats plus modestes, mais la méthode s'applique telle quelle à n'importe quel jeu de données de joueurs.
 
-## Cosa fa il progetto
+## Ce que fait le projet
 
-1. Raccolta automatizzata delle statistiche di tutti i giocatori che hanno disputato la stagione 2025/2026 di Serie A (339 giocatori selezionati, almeno 900 minuti giocati).
-2. Conversione delle statistiche in tassi "per 90 minuti", per confrontare il ritmo di rendimento piuttosto che i totali stagionali.
-3. Raggruppamento dei giocatori per ruolo (Attaccante, Centrocampista, Difensore, Portiere), ciascuno con i propri criteri di confronto pertinenti.
-4. Calcolo di un punteggio di similarità statistica tra giocatori dello stesso ruolo (similarità coseno), convertito in percentuale di somiglianza.
-5. Esportazione verso un database MySQL, consultabile tramite viste SQL pronte all'uso.
+1. Collecte automatisée des statistiques de tous les joueurs ayant disputé la saison 2025/2026 de Serie A (339 joueurs retenus, au moins 900 minutes jouées).
+2. Conversion des statistiques en taux "par 90 minutes", pour comparer des rythmes de production plutôt que des totaux de saison.
+3. Regroupement des joueurs par poste (Attaquant, Milieu, Défenseur, Gardien), chacun avec ses propres critères de comparaison pertinents.
+4. Calcul d'un score de similarité statistique entre joueurs d'un même poste (similarité cosinus), converti en pourcentage de ressemblance.
+5. Export vers une base de données MySQL, consultable via des vues SQL prêtes à l'emploi.
 
-## Esempio di risultato
+## Exemple de résultat
 
-Ricerca dei giocatori più simili a Lautaro Martínez (Inter):
+Recherche des joueurs les plus proches de Lautaro Martínez (Inter Milan) :
 
-| Giocatore | Squadra | Somiglianza |
+| Joueur | Équipe | Ressemblance |
 |---|---|---|
 | Marcus Thuram | Inter | 97,7 % |
 | Nikola Krstović | Cagliari | 92,9 % |
 | Rafael Leão | AC Milan | 91,6 % |
 
-*(vedi `screenshots/` per altri esempi, per ogni ruolo)*
+*(voir `screenshots/` pour d'autres exemples, tous postes confondus)*
 
-## Stack tecnico
+## Stack technique
 
-- **Python** (pandas, scikit-learn, rapidfuzz): raccolta, pulizia, calcolo di similarità
-- **cloudscraper**: aggiramento delle protezioni anti-bot per la raccolta di dati pubblici
-- **MySQL / phpMyAdmin**: archiviazione e consultazione dei risultati
-- **SQL**: viste dedicate per ruolo, join, ordinamento
+- **Python** (pandas, scikit-learn, rapidfuzz) : collecte, nettoyage, calcul de similarité
+- **cloudscraper** : contournement des protections anti-bot pour la collecte de données publiques
+- **MySQL / phpMyAdmin** : stockage et consultation des résultats
+- **SQL** : vues dédiées par poste, jointures, tri
 
-## Contenuto del repository
+## Contenu du dépôt
 
-- `Scouting_propre.ipynb`: notebook completo, dalla raccolta dei dati fino all'esportazione, commentato riga per riga
-- `vues_sql.sql`: query SQL delle viste di consultazione (una per ruolo)
-- `screenshots/`: screenshot di risultati concreti in phpMyAdmin
+- `Scouting_propre.ipynb` : notebook complet, de la collecte des données jusqu'à l'export, commenté ligne par ligne
+- `vues_sql.sql` : requêtes SQL des vues de consultation (une par poste)
+- `screenshots/` : captures d'écran de résultats concrets dans phpMyAdmin
 
-## Limiti attuali e possibili miglioramenti
+## Limites actuelles et pistes d'amélioration
 
-- La suddivisione per ruolo resta ampia (4 categorie); un terzino offensivo, ad esempio, può risultare classificato tra i centrocampisti a seconda della categorizzazione della fonte dati.
-- Il sistema non distingue ancora in modo fine gli stili di gioco all'interno di uno stesso ruolo (es. un'ala tecnica e una prima punta fisica condividono statistiche di volume simili).
-- Attualmente limitato alla Serie A; estendibile a qualsiasi campionato o ai dati propri di un club.
+- Le découpage par poste reste large (4 catégories) ; un latéral offensif peut par exemple se retrouver classé parmi les milieux selon la catégorisation de la source de données.
+- Le système ne distingue pas encore finement les styles de jeu au sein d'un même poste (ex : un ailier technique et un avant-centre physique partagent des statistiques de volume proches).
+- Actuellement limité à la Serie A ; extensible à n'importe quel championnat ou aux données propres d'un club.
 
-## Nota linguistica
-
-Il notebook e i commenti al codice sono scritti in francese, la mia lingua madre. Sono disponibile a tradurli in italiano o in inglese su richiesta.
-
-*Una versione in francese di questo README è disponibile nel file `README_fr.md`.*
-
-## Contatti
-
-[Nome / LinkedIn / email da completare]
