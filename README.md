@@ -26,7 +26,6 @@ Recherche des joueurs les plus proches de Lautaro Martínez (Inter Milan) :
 | Nikola Krstović | Cagliari | 92,9 % |
 | Rafael Leão | AC Milan | 91,6 % |
 
-*(voir `screenshots/` pour d'autres exemples, tous postes confondus)*
 
 ## Stack technique
 
@@ -39,7 +38,6 @@ Recherche des joueurs les plus proches de Lautaro Martínez (Inter Milan) :
 
 - `Scouting_propre.ipynb` : notebook complet, de la collecte des données jusqu'à l'export, commenté ligne par ligne
 - `vues_sql.sql` : requêtes SQL des vues de consultation (une par poste)
-- `screenshots/` : captures d'écran de résultats concrets dans phpMyAdmin
 
 ## Limites actuelles et pistes d'amélioration
 
